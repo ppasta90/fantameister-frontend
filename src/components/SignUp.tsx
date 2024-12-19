@@ -42,7 +42,7 @@ const SignupForm = () => {
 
     return (
         <div>
-          <h1 className='mb-4'>Login</h1>
+          <h1 className='mb-4'>Sign Up</h1>
           <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
             <input className='border p-2 rounded-md' type="text" placeholder="Username" value={username} onChange={handleUsernameRegister} />
             <input className='border p-2 rounded-md' type="text" placeholder="Name" value={name} onChange={handleNameRegister} />

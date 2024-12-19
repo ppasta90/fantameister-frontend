@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  let navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,9 +15,14 @@ const LoginForm = () => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data), 
     })
-    console.log("response", response);
+
+    if (response.status !== 200) { //guard clause
+      navigate("/signup");
+      return;
+    }
+    navigate("/");
   };
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
