@@ -5,19 +5,13 @@ import { Routes, Route } from 'react-router';
 import Homepage from './pages/Homepage';
 
 function App() {
-  const user = localStorage.getItem('user');
-  console.log(user);
+
   return (
     <>
       <Routes>
-        {user ? (
-          <Route path="/" element={<Homepage />} />
-        ) : (
-          <>
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/signup" element={<SignupForm />} />
-          </>
-        )}
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
       </Routes>
     </>
   );

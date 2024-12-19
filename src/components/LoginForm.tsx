@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();
+  const user = localStorage.getItem('user');
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,6 +48,7 @@ const LoginForm = () => {
         <input className='border p-2 rounded-md' type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <button type="submit">Login</button>
       </form>
+      <p>Don't have an account? <button onClick={() => navigate("/signup")}>Signup</button></p>
     </div>
   );
 };

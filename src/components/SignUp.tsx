@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -6,6 +7,14 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
+  const user = localStorage.getItem('user');
+  let navigate = useNavigate();
+  
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,6 +31,7 @@ const SignupForm = () => {
     if (response.status === 200) {
       const dataToSave = { username, name, email };
       localStorage.setItem('user', JSON.stringify(dataToSave));
+      navigate("/");
     }
   };
 
