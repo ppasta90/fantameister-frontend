@@ -1,5 +1,17 @@
-const Homepage = () => {
-    return <div>Homepage</div>
-}
+import { useNavigate } from 'react-router';
 
-export default Homepage
+const Homepage = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+  return (
+    <>
+      <div>Homepage</div>
+      <button onClick={handleLogout}>Logout</button>
+    </>
+  );
+};
+
+export default Homepage;
