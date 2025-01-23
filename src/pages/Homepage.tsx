@@ -1,25 +1,22 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import Navbar from '../components/Navbar';
 
 const Homepage = () => {
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
   const user = localStorage.getItem('user');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate('/login');
     }
   }, [user]);
 
   return (
-    <>
-      <div>Homepage</div>
-      <button onClick={handleLogout}>Logout</button>
-    </>
+    <main className="border">
+      <h1 className="p-4">FantaMeister</h1>
+      <Navbar />
+    </main>
   );
 };
 
