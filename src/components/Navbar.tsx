@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router';
 
 const Navbar = () => {
@@ -9,14 +8,17 @@ const Navbar = () => {
   };
   return (
     <nav className="p-4 border">
-      <ul className="flex gap-4 xsm:flex-col md:flex-row">
+      <ul className="flex items-center gap-4 xsm:flex-col md:flex-row">
         <li>Home</li>
         <li>Classifica</li>
-        <li>Formazioni</li>
         <li>Calendario</li>
-        <li className="md:ml-auto sm:ml-0">Account</li>
+        <div className="flex xsm:flex-col md:flex-row items-center gap-2 md:ml-auto sm:ml-0">
+          <button>Create a league</button>
+          <button>Join a league</button>
+          <li>Account</li>
+        </div>
       </ul>
-      <button onClick={handleLogout}>Logout</button>
+      {/* <button onClick={handleLogout}>Logout</button> */}
     </nav>
   );
 };

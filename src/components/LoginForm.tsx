@@ -29,6 +29,7 @@ const LoginForm = () => {
       navigate("/signup");
       return;
     }
+    localStorage.setItem('user', JSON.stringify(data));
     navigate("/");
   };
 
