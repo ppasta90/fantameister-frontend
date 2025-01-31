@@ -7,7 +7,7 @@ import Homepage from './pages/Homepage';
 function App() {
   return (
     <>
-      <div className="h-full border">
+      <div className="h-full">
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginForm />} />

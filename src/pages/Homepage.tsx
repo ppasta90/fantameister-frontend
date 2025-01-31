@@ -16,7 +16,7 @@ const Homepage = () => {
   const array = ["1", "2", "3", "4", "5"];
 
   return (
-    <main className="border">
+    <main className="">
       <h1 className="p-4">FantaMeister</h1>
       <Navbar />
       <div className="flex flex-wrap gap-4 p-4">

@@ -6,8 +6,12 @@ const Navbar = () => {
     localStorage.removeItem('user');
     navigate('/login');
   };
+
+  const gotToAccunt = () => {
+    alert('going to account settings?');
+  };
   return (
-    <nav className="p-4 border">
+    <nav className="p-4">
       <ul className="flex items-center gap-4 xsm:flex-col md:flex-row">
         <li>Home</li>
         <li>Classifica</li>
@@ -15,10 +19,10 @@ const Navbar = () => {
         <div className="flex xsm:flex-col md:flex-row items-center gap-2 md:ml-auto sm:ml-0">
           <button>Create a league</button>
           <button>Join a league</button>
-          <li>Account</li>
+          <button onClick={gotToAccunt}>Account</button>
         </div>
+      <button onClick={handleLogout}>Logout</button>
       </ul>
-      {/* <button onClick={handleLogout}>Logout</button> */}
     </nav>
   );
 };

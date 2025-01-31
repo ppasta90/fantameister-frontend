@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();
   const user = localStorage.getItem('user');
@@ -15,7 +15,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = { email:username, password };
+    const data = { email:email, password };
     const response = await fetch('http://127.0.0.1:8000/api/login', {
       method: 'POST',
       headers: {
@@ -33,8 +33,8 @@ const LoginForm = () => {
     navigate("/");
   };
 
-  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +45,7 @@ const LoginForm = () => {
     <div>
       <h1 className='mb-4'>Login</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
-        <input className='border p-2 rounded-md' type="text" placeholder="Username" value={username} onChange={handleUsernameChange} />
+        <input className='border p-2 rounded-md' type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input className='border p-2 rounded-md' type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <button type="submit">Login</button>
       </form>
